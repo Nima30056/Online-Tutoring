@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SmartTutor | Online Tutoring</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom right, orange, deepskyblue);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      width: 400px;
+      padding: 30px;
+      text-align: center;
+    }
+
+    h1 { color: darkblue; margin-bottom: 20px; font-size: 36px; }
+    p { color: gray; margin-bottom: 25px; font-size: 16px; }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 6px;
+      border: 1px solid gray;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 12px;
+      width: 100%;
+      font-size: 18px;
+      background-color: blue;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: 0.3s;
+    }
+    button:hover { background-color: darkblue; }
+
+    .greeting { font-size: 20px; color: darkgreen; margin-bottom: 20px; font-weight: bold; }
+
+    .classes-container { margin-top: 20px; }
+    .class-cards {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    .card {
+      background: white;
+      padding: 15px 10px;
+      width: 120px;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .card:hover { transform: scale(1.05); box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
+    .card h2 { color: darkorange; font-size: 18px; margin-bottom: 5px; }
+    .card p { font-size: 14px; color: gray; margin-bottom: 10px; }
+    .card button {
+      font-size: 14px;
+      padding: 6px;
+      width: 100%;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container" id="signupContainer">
+    <h1>Sign Up</h1>
+    <p>Enter your School Name and Email to get started</p>
+    <form onsubmit="submitForm(event)">
+      <input type="text" name="school" placeholder="School Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <button type="submit">Get Started</button>
+    </form>
+  </div>
+
+  <div class="container" id="mainContainer" style="display:none;">
+    <div class="greeting" id="greeting"></div>
+
+    <div class="classes-container">
+      <h2>Choose Your Class Group</h2>
+      <div class="class-cards">
+        <div class="card">
+          <h2>PP–3</h2>
+          <p>Pre-Primary to Class 3</p>
+          <button onclick="goToPage()">View Classes</button>
+        </div>
+        <div class="card">
+          <h2>4–6</h2>
+          <p>Class 4 to Class 6</p>
+          <button onclick="goToPage()">View Classes</button>
+        </div>
+        <div class="card">
+          <h2>7–9</h2>
+          <p>Class 10 to Class 12</p>
+          <button onclick="goToPage()">View Classes</button>
+        </div>
+        <div class="card">
+          <h2>10–12</h2>
+          <p>Class 10 to Class 12</p>
+          <button onclick="goToPage()">View Classes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Check if user already signed up
+    const savedSchool = localStorage.getItem('school');
+    const savedEmail = localStorage.getItem('email');
+    const signupContainer = document.getElementById('signupContainer');
+    const mainContainer = document.getElementById('mainContainer');
+    const greeting = document.getElementById('greeting');
+
+    if(savedSchool && savedEmail){
+      // Hide signup, show main
+      signupContainer.style.display = 'none';
+      mainContainer.style.display = 'block';
+      greeting.innerText = `Hello! School: ${savedSchool}, Email: ${savedEmail}`;
+    }
+
+    function submitForm(event){
+      event.preventDefault();
+      const school = event.target.school.value;
+      const email = event.target.email.value;
+
+      // Save to localStorage
+      localStorage.setItem('school', school);
+      localStorage.setItem('email', email);
+
+      // Hide signup, show main
+      signupContainer.style.display = 'none';
+      mainContainer.style.display = 'block';
+      greeting.innerText = `Hello! School: ${school}, Email: ${email}`;
+    }
+
+    function goToPage(){
+      window.location.href = "https://www.bing.com/ck/a?!&&p=d0c74ee01eff98bb1d6ddfd246e544e442e99472aa521763004d2491b03ee082JmltdHM9MTc2NjUzNDQwMA&ptn=3&ver=2&hsh=4&fclid=1ac18586-8ece-6203-31b7-90798fcf635c&psq=sheyrig&u=a1aHR0cDovL215c2hlcmlnLmVkdWNhdGlvbi5nb3YuYnQv";
+    }
+  </script>
+</body>
+</html>

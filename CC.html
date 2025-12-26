@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SmartTutor | Welcome</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; font-family: Arial, sans-serif; }
+
+    .cover {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(135deg, orange, deepskyblue);
+      color: white;
+      padding: 20px;
+    }
+
+    .cover h1 {
+      font-size: 70px;
+      margin-bottom: 20px;
+      color: yellow;
+      text-shadow: 2px 2px black;
+    }
+
+    .cover p {
+      font-size: 28px;
+      margin-bottom: 40px;
+      color: lightyellow;
+      text-shadow: 1px 1px black;
+    }
+
+    .start-btn {
+      padding: 20px 50px;
+      font-size: 24px;
+      font-weight: bold;
+      background-color: blue;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .start-btn:hover {
+      background-color: darkblue;
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 500px) {
+      .cover h1 { font-size: 50px; }
+      .cover p { font-size: 22px; }
+      .start-btn { font-size: 20px; padding: 15px 35px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cover">
+    <h1>SmartTutor</h1>
+    <p>Online Tutoring for School Students</p>
+    <button class="start-btn" onclick="GetStarted()">Get Started</button>
+  </div>
+
+  <script>
+    function GetStarted() {
+      window.location.href = "signup.html"; // change if needed
+    }
+  </script>
+
+</body>
+</html>

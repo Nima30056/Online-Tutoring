@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartTutor | Sign Up</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, orange, deepskyblue);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .signup-container {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      width: 300px;
+    }
+
+    h1 {
+      color: darkblue;
+      margin-bottom: 15px;
+    }
+
+    p {
+      color: gray;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid gray;
+      border-radius: 5px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: blue;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background: darkblue;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="signup-container">
+    <h1>Sign Up</h1>
+    <p>Enter your School Name and Email</p>
+
+    <form id="signupForm">
+      <input type="text" name="school" placeholder="School Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <button type="submit">Get Started</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('signupForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const school = this.school.value.trim();
+      const email = this.email.value.trim();
+
+      localStorage.setItem('school', school);
+      localStorage.setItem('email', email);
+
+      window.location.href = "https://www.bing.com/ck/a?!&&p=d0c74ee01eff98bb1d6ddfd246e544e442e99472aa521763004d2491b03ee082JmltdHM9MTc2NjUzNDQwMA&ptn=3&ver=2&hsh=4&fclid=1ac18586-8ece-6203-31b7-90798fcf635c&psq=sheyrig&u=a1aHR0cDovL215c2hlcmlnLmVkdWNhdGlvbi5nb3YuYnQv";
+    });
+  </script>
+
+</body>
+</html>
